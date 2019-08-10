@@ -245,3 +245,11 @@ Use spell checking when writing normal text.
     (add-hook 'org-mode-hook 'flyspell-mode)
     (add-hook 'git-commit-mode-hook 'flyspell-mode))
 #+END_SRC
+* Searching
+
+Use avy to search by first letter of a word.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package avy
+    :bind ("M-s" . avy-goto-word-1))
+#+END_SRC
