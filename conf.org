@@ -266,3 +266,17 @@ Use avy to search by first letter of a word.
   (use-package avy
     :bind ("M-s" . avy-goto-word-1))
 #+END_SRC
+* Version control
+
+Use git-commit.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package git-commit)
+  (setq git-commit-summary-max-length 50)
+  (add-hook 'git-commit-mode-hook 'claha/git-commit-auto-fill-everywhere)
+
+  (defun claha/git-commit-auto-fill-everywhere ()
+    "Ensures that the commit body does not exceed 72 characters."
+    (setq fill-column 72)
+    (setq-local comment-auto-fill-only-comments nil))
+#+END_SRC
