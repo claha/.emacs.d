@@ -24,3 +24,39 @@ Save emacs customization settings in a seperate file.
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file)
 #+END_SRC
+* Apperance
+
+Configure the apperance of emacs.
+
+Do not show the startup message and clear the scratch buffer.
+
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+  (setq initial-scratch-message nil)
+#+END_SRC
+
+Remove bars that we do not use and takes up space.
+
+#+BEGIN_SRC emacs-lisp
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (scroll-bar-mode -1)
+  (set-window-scroll-bars (minibuffer-window) nil nil)
+#+END_SRC
+
+Highlight current line and visually indicate matching pairs of parentheses.
+
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode 1)
+
+  (show-paren-mode 1)
+  (setq show-paren-delay 0.0)
+#+END_SRC
+
+Configure to show line and column numbers.
+
+#+BEGIN_SRC emacs-lisp
+  (global-linum-mode t)
+  (setq line-number-mode t)
+  (setq column-number-mode t)
+#+END_SRC
