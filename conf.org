@@ -135,3 +135,29 @@ Show some extra help using =which-key=.
   (use-package which-key
     :config (which-key-mode))
 #+END_SRC
+* Miscellaneous
+
+Tabs are evil.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+#+END_SRC
+
+Writing 'yes/no' takes to much time...
+
+#+BEGIN_SRC emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+Use 4 as default tab width, 8 is to much.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default tab-width 4)
+#+END_SRC
+
+Allow to change case of region.
+
+#+BEGIN_SRC emacs-lisp
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil)
+#+END_SRC
