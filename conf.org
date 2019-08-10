@@ -15,10 +15,9 @@ Ensure that =use-package= installs the package if it is not already installed, a
 
   (setq load-prefer-newer t)
 #+END_SRC
+* Emacs customization's
 
-* Emacs customizations
-
-Save emacs customization settings in a seperate file.
+Save Emacs customization settings in a separate file.
 
 #+BEGIN_SRC emacs-lisp
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -26,7 +25,7 @@ Save emacs customization settings in a seperate file.
 #+END_SRC
 * Appearance
 
-Configure the apperance of emacs.
+Configure the appearance of Emacs.
 
 Do not show the startup message and clear the scratch buffer.
 
@@ -69,9 +68,9 @@ Install and load ==material-theme==
   (use-package material-theme
     :config (load-theme 'material t))
 #+END_SRC
-** Modeline
+** Mode line
 
-Configure modeline without icon and showing minor modes and buffer name.
+Configure mode line without icon and showing minor modes and buffer name.
 
 #+BEGIN_SRC emacs-lisp
   (use-package doom-modeline
@@ -98,7 +97,7 @@ Make it prettier using bullets and downward-pointing arrow.
   (setq org-ellipsis "⤵")
 #+END_SRC
 
-Configure source window to behave natively and to open in seperate window.
+Configure source window to behave naively and to open in separate window.
 
 #+BEGIN_SRC emacs-lisp
   (setq org-src-fontify-natively t)
@@ -126,7 +125,7 @@ Install needed package to be able to export to HTML.
   (use-package htmlize)
 #+END_SRC
 
-Use firefox to view generated file.
+Use Firefox to view generated file.
 
 #+BEGIN_SRC emacs-lisp
   (setq browse-url-browser-function 'browse-url-generic
@@ -146,10 +145,9 @@ Show some extra help using =which-key=.
   (use-package which-key
     :config (which-key-mode))
 #+END_SRC
-
 * Configure =ivy=
 
-Install ivy and some basic confiugration.
+Install ivy and some basic configuration.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ivy
@@ -159,7 +157,6 @@ Install ivy and some basic confiugration.
     (setq ivy-count-format "%d/%d ")
     (setq ivy-display-style 'fancy))
 #+END_SRC
-
 * Miscellaneous
 
 Tabs are evil.
@@ -187,13 +184,12 @@ Allow to change case of region.
   (put 'upcase-region 'disabled nil)
 #+END_SRC
 
-Delete all the whitespace when hitting backspace or delete.
+Delete all the white space when hitting backspace or delete.
 
 #+BEGIN_SRC emacs-lisp
   (use-package hungry-delete
     :config (global-hungry-delete-mode))
 #+END_SRC
-
 * Keybindings
 
 Execute the very useful dynamic abbreviation expand.
@@ -207,7 +203,6 @@ Quickly change to the other window.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-o") 'other-window)
 #+END_SRC
-
 * Dired
 
 Set the flags passed to ls by dired.
@@ -221,7 +216,6 @@ Hide details by default, toggle with =(= when in dired.
 #+BEGIN_SRC emacs-lisp
   (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
 #+END_SRC
-
 * Buffer
 
 Use ibuffer instead.
@@ -244,7 +238,7 @@ Keep the buffer list up to date.
                (ibuffer-auto-mode 1)))
 #+END_SRC
 
-Assume that I always wnat to kill the current buffer.
+Assume that I always want to kill the current buffer.
 
 #+BEGIN_SRC emacs-lisp
   (defun claha/kill-current-buffer ()
