@@ -188,3 +188,17 @@ Quickly change to the other window.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-o") 'other-window)
 #+END_SRC
+
+* Dired
+
+Set the flags passed to ls by dired.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default dired-listing-switches "-lhva")
+#+END_SRC
+
+Hide details by default, toggle with =(= when in dired.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
+#+END_SRC
