@@ -60,3 +60,12 @@ Configure to show line and column numbers.
   (setq line-number-mode t)
   (setq column-number-mode t)
 #+END_SRC
+
+** Theme
+
+Install and load ==material-theme==
+
+#+BEGIN_SRC emacs-lisp
+  (use-package material-theme
+    :config (load-theme 'material t))
+#+END_SRC
