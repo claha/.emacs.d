@@ -161,3 +161,16 @@ Allow to change case of region.
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
 #+END_SRC
+* Keybindings
+
+Execute the very useful dynamic abbreviation expand.
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-.") 'dabbrev-expand)
+#+END_SRC
+
+Quickly change to the other window.
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-o") 'other-window)
+#+END_SRC
