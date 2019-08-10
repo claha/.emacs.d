@@ -24,7 +24,7 @@ Save emacs customization settings in a seperate file.
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file)
 #+END_SRC
-* Apperance
+* Appearance
 
 Configure the apperance of emacs.
 
@@ -68,6 +68,17 @@ Install and load ==material-theme==
 #+BEGIN_SRC emacs-lisp
   (use-package material-theme
     :config (load-theme 'material t))
+#+END_SRC
+** Modeline
+
+Configure modeline without icon and showing minor modes and buffer name.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package doom-modeline
+    :hook (after-init . doom-modeline-mode))
+  (setq doom-modeline-icon nil)
+  (setq doom-modeline-minor-modes t)
+  (setq doom-modeline-buffer-file-name-style 'buffer-name)
 #+END_SRC
 * Configure Org
 
