@@ -175,6 +175,14 @@ Allow to change case of region.
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
 #+END_SRC
+
+Delete all the whitespace when hitting backspace or delete.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package hungry-delete
+    :config (global-hungry-delete-mode))
+#+END_SRC
+
 * Keybindings
 
 Execute the very useful dynamic abbreviation expand.
