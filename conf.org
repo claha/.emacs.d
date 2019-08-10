@@ -202,3 +202,35 @@ Hide details by default, toggle with =(= when in dired.
 #+BEGIN_SRC emacs-lisp
   (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
 #+END_SRC
+
+* Buffer
+
+Use ibuffer instead.
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+#+END_SRC
+
+Do not ask for confirmation to delete marked buffers.
+
+#+BEGIN_SRC emacs-lisp
+  (setq ibuffer-expert t)
+#+END_SRC
+
+Keep the buffer list up to date.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'buffer-mode-hook
+            '(lambda ()
+               (ibuffer-auto-mode 1)))
+#+END_SRC
+
+Assume that I always wnat to kill the current buffer.
+
+#+BEGIN_SRC emacs-lisp
+  (defun claha/kill-current-buffer ()
+    "Kill the current buffer without prompting."
+    (interactive)
+    (kill-buffer (current-buffer)))
+  (global-set-key (kbd "C-x k") 'claha/kill-current-buffer)
+#+END_SRC
