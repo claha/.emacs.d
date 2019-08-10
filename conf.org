@@ -127,3 +127,11 @@ Do not include footer.
 #+BEGIN_SRC emacs-lisp
   (setq org-html-postamble nil)
 #+END_SRC
+* Configure =which-key=
+
+Show some extra help using =which-key=.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :config (which-key-mode))
+#+END_SRC
