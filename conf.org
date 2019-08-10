@@ -69,3 +69,61 @@ Install and load ==material-theme==
   (use-package material-theme
     :config (load-theme 'material t))
 #+END_SRC
+* Configure Org
+
+Install latest version of Org.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org)
+#+END_SRC
+
+Make it prettier using bullets and downward-pointing arrow.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :init
+    (add-hook 'org-mode-hook 'org-bullets-mode))
+
+  (setq org-ellipsis "⤵")
+#+END_SRC
+
+Configure source window to behave natively and to open in seperate window.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-fontify-natively t)
+  (setq org-src-tabs-acts-natively t)
+  (setq org-src-window-setup 'current-window)
+#+END_SRC
+
+Configure languages that babel should evaluate and do not ask before evaluating.
+
+#+BEGIN_SRC emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+
+   '((emacs-lisp . t)
+     (python . t)))
+
+  (setq org-confirm-babel-evaluate nil)
+#+END_SRC
+
+** Export to HTML
+
+Install needed package to be able to export to HTML.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package htmlize)
+#+END_SRC
+
+Use firefox to view generated file.
+
+#+BEGIN_SRC emacs-lisp
+  (setq browse-url-browser-function 'browse-url-generic
+	browse-url-generic-program "firefox")
+#+END_SRC
+
+Do not include footer.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-html-postamble nil)
+#+END_SRC
