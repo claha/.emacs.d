@@ -135,6 +135,20 @@ Show some extra help using =which-key=.
   (use-package which-key
     :config (which-key-mode))
 #+END_SRC
+
+* Configure =ivy=
+
+Install ivy and some basic confiugration.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :config
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-count-format "%d/%d ")
+    (setq ivy-display-style 'fancy))
+#+END_SRC
+
 * Miscellaneous
 
 Tabs are evil.
