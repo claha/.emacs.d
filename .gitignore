@@ -1,11 +1,6 @@
-# Compiled
+auto-save-list
+elpa
 *.elc
-
-# Packaging
 .cask
-
-# Backup files
 *~
-
-# Undo-tree save-files
-*.~undo-tree
+\#*
