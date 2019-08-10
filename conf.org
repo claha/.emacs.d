@@ -1,0 +1,17 @@
+#+TITLE: Emacs Configuration
+#+AUTHOR: Claes Hallstrom
+#+OPTIONS: toc:nil num:nil
+
+* Configure =use-package=
+
+Ensure that =use-package= installs the package if it is not already installed, also always compile and use the newest version available.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+
+  (use-package auto-compile
+    :config (auto-compile-on-load-mode))
+
+  (setq load-prefer-newer t)
+#+END_SRC
