@@ -280,3 +280,12 @@ Use git-commit.
     (setq fill-column 72)
     (setq-local comment-auto-fill-only-comments nil))
 #+END_SRC
+* Flycheck
+
+Enable flycheck globally.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :init
+    (global-flycheck-mode t))
+#+END_SRC
