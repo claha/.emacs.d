@@ -289,3 +289,10 @@ Enable flycheck globally.
     :init
     (global-flycheck-mode t))
 #+END_SRC
+* CMake
+
+Install CMake mode.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package cmake-mode)
+#+END_SRC
