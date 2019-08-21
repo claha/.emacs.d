@@ -190,6 +190,12 @@ Delete all the white space when hitting backspace or delete.
   (use-package hungry-delete
     :config (global-hungry-delete-mode))
 #+END_SRC
+
+Scroll compilation buffer to first error, will scroll to bottom if no error.
+
+#+BEGIN_SRC emacs-lisp
+  (setq compilation-scroll-output 'first-error)
+#+END_SRC
 * Keybindings
 
 Execute the very useful dynamic abbreviation expand.
