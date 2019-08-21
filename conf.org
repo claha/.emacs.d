@@ -303,3 +303,12 @@ Install Hydra.
 #+BEGIN_SRC emacs-lisp
   (use-package hydra)
 #+END_SRC
+* Go
+
+Install and configure golang.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package go-mode
+    :init
+    (add-hook 'before-save-hook 'gofmt-before-save))
+#+END_SRC
