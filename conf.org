@@ -188,6 +188,12 @@ Allow to change case of region.
   (put 'upcase-region 'disabled nil)
 #+END_SRC
 
+Allow narrowing.
+
+#+BEGIN_SRC emacs-lisp
+  (put 'narrow-to-region 'disabled nil)
+#+END_SRC
+
 Delete all the white space when hitting backspace or delete.
 
 #+BEGIN_SRC emacs-lisp
