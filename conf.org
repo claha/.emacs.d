@@ -336,3 +336,11 @@ Configure c/c++ indentation.
   (setq c-default-style "linux" c-basic-offset 2)
   (c-set-offset 'case-label '+)
 #+END_SRC
+* Private
+
+Load private file if it exists and is readable.
+
+#+BEGIN_SRC emacs-lisp
+  (if (file-readable-p (expand-file-name "private.el" user-emacs-directory))
+      (load-file (expand-file-name "private.el" user-emacs-directory)))
+#+END_SRC
