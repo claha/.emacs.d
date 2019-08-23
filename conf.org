@@ -322,3 +322,11 @@ Install and configure golang.
     :init
     (add-hook 'before-save-hook 'gofmt-before-save))
 #+END_SRC
+* C/C++
+
+Configure c/c++ indentation.
+
+#+BEGIN_SRC emacs-lisp
+  (setq c-default-style "linux" c-basic-offset 2)
+  (c-set-offset 'case-label '+)
+#+END_SRC
