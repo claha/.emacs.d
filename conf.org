@@ -345,6 +345,13 @@ Enable yasnippet, will only use snippets defined locally in snippets directory.
     :init
     (yas-global-mode 1))
 #+END_SRC
+* Ag
+
+Install ag (the silver searcher).
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ag)
+#+END_SRC
 * Private
 
 Load private file if it exists and is readable.
