@@ -147,7 +147,6 @@ Show some extra help using =which-key=.
 
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :defer t
     :config (which-key-mode))
 #+END_SRC
 * Configure =ivy=
@@ -156,7 +155,6 @@ Install ivy and some basic configuration.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ivy
-    :defer t
     :config
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
@@ -204,7 +202,6 @@ Delete all the white space when hitting backspace or delete.
 
 #+BEGIN_SRC emacs-lisp
   (use-package hungry-delete
-    :defer t
     :config (global-hungry-delete-mode))
 #+END_SRC
 
@@ -276,7 +273,6 @@ Use spell checking when writing normal text.
 
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell
-    :defer t
     :config
     (add-hook 'text-mode-hook 'turn-on-auto-fill)
     (add-hook 'org-mode-hook 'flyspell-mode)
