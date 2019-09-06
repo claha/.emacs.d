@@ -11,6 +11,7 @@ Ensure that =use-package= installs the package if it is not already installed, a
   (setq use-package-always-ensure t)
 
   (use-package auto-compile
+    :defer t
     :config (auto-compile-on-load-mode))
 
   (setq load-prefer-newer t)
@@ -84,13 +85,15 @@ Configure mode line without icon and showing minor modes and buffer name.
 Install latest version of Org.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package org)
+  (use-package org
+    :defer t)
 #+END_SRC
 
 Make it prettier using bullets and downward-pointing arrow.
 
 #+BEGIN_SRC emacs-lisp
   (use-package org-bullets
+    :defer t
     :init
     (add-hook 'org-mode-hook 'org-bullets-mode))
 
@@ -122,7 +125,8 @@ Configure languages that babel should evaluate and do not ask before evaluating.
 Install needed package to be able to export to HTML.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package htmlize)
+  (use-package htmlize
+    :defer t)
 #+END_SRC
 
 Use Firefox to view generated file.
@@ -143,6 +147,7 @@ Show some extra help using =which-key=.
 
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
+    :defer t
     :config (which-key-mode))
 #+END_SRC
 * Configure =ivy=
@@ -151,6 +156,7 @@ Install ivy and some basic configuration.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ivy
+    :defer t
     :config
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
@@ -198,6 +204,7 @@ Delete all the white space when hitting backspace or delete.
 
 #+BEGIN_SRC emacs-lisp
   (use-package hungry-delete
+    :defer t
     :config (global-hungry-delete-mode))
 #+END_SRC
 
@@ -269,6 +276,7 @@ Use spell checking when writing normal text.
 
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell
+    :defer t
     :config
     (add-hook 'text-mode-hook 'turn-on-auto-fill)
     (add-hook 'org-mode-hook 'flyspell-mode)
@@ -280,6 +288,7 @@ Use avy to search by first letter of a word.
 
 #+BEGIN_SRC emacs-lisp
   (use-package avy
+    :defer t
     :bind ("M-s" . avy-goto-word-1))
 #+END_SRC
 * Version control
@@ -287,7 +296,8 @@ Use avy to search by first letter of a word.
 Use git-commit.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package git-commit)
+  (use-package git-commit
+    :defer t)
   (setq git-commit-summary-max-length 50)
   (add-hook 'git-commit-mode-hook 'claha/git-commit-auto-fill-everywhere)
 
@@ -302,6 +312,7 @@ Enable flycheck globally.
 
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
+    :defer t
     :init
     (global-flycheck-mode t))
 #+END_SRC
@@ -310,14 +321,16 @@ Enable flycheck globally.
 Install CMake mode.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package cmake-mode)
+  (use-package cmake-mode
+    :defer t)
 #+END_SRC
 * Hydra
 
 Install Hydra.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package hydra)
+  (use-package hydra
+    :defer t)
 #+END_SRC
 * Go
 
@@ -325,6 +338,7 @@ Install and configure golang.
 
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
+    :defer t
     :init
     (add-hook 'before-save-hook 'gofmt-before-save))
 #+END_SRC
@@ -342,6 +356,7 @@ Enable yasnippet, will only use snippets defined locally in snippets directory.
 
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
+    :defer t
     :init
     (yas-global-mode 1))
 #+END_SRC
@@ -350,7 +365,8 @@ Enable yasnippet, will only use snippets defined locally in snippets directory.
 Install ag (the silver searcher).
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ag)
+  (use-package ag
+    :defer t)
 #+END_SRC
 * Grep
 
