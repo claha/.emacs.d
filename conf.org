@@ -376,6 +376,16 @@ Hide header when using rgrep using narrowing.
         (narrow-to-region (point) (point-max)))))
   (defadvice rgrep (after delete-grep-header activate) (delete-grep-header))
 #+END_SRC
+* Dumb Jump
+
+Configure dumb-jump.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dumb-jump
+    :bind (("M-." . dumb-jump-go)
+           ("M-," . dumb-jump-back))
+    :config (setq dumb-jump-selector 'ivy))
+#+END_SRC
 * Private
 
 Load private file if it exists and is readable.
