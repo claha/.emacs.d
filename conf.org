@@ -24,6 +24,20 @@ Save Emacs customization settings in a separate file.
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   (load custom-file)
 #+END_SRC
+
+Save Emacs backup files elsewhere.
+
+#+BEGIN_SRC emacs-lisp
+  (setq backup-directory-alist `(("." . ,(expand-file-name ".backup" user-emacs-directory))))
+
+  (setq delete-old-versions t
+        kept-new-versions 6
+        kept-old-versions 2
+        version-control t)
+
+  (setq auto-save-file-name-transforms
+        `((".*" ,(expand-file-name ".backup" user-emacs-directory))))
+#+END_SRC
 * Appearance
 
 Configure the appearance of Emacs.
