@@ -224,6 +224,16 @@ Scroll compilation buffer to first error, will scroll to bottom if no error.
 #+BEGIN_SRC emacs-lisp
   (setq compilation-scroll-output 'first-error)
 #+END_SRC
+
+Colorize compilation buffer.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ansi-color
+    :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
+
+  (defun colorize-compilation-buffer ()
+    (ansi-color-apply-on-region compilation-filter-start (point)))
+#+END_SRC
 * Keybindings
 
 Execute the very useful dynamic abbreviation expand.
