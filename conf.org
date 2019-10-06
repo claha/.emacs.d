@@ -349,6 +349,7 @@ Enable flycheck globally.
 
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
+    :diminish flycheck-mode
     :defer t
     :init
     (global-flycheck-mode t))
