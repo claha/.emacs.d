@@ -392,9 +392,8 @@ Enable yasnippet, will only use snippets defined locally in snippets directory.
 
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
-    :defer t
-    :init
-    (yas-global-mode 1))
+    :diminish yas-minor-mode
+    :config (yas-global-mode 1))
 #+END_SRC
 * Grep
 
