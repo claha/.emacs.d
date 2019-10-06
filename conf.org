@@ -172,6 +172,7 @@ Install ivy and some basic configuration.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ivy
+    :diminish ivy-mode
     :config
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
