@@ -163,6 +163,7 @@ Show some extra help using =which-key=.
 
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
+    :diminish which-key-mode
     :config (which-key-mode))
 #+END_SRC
 * Configure =ivy=
