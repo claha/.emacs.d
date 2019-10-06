@@ -10,6 +10,12 @@
 (when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
+(when (not (package-installed-p 'diminish))
+  (package-refresh-contents)
+  (package-install 'diminish))
+(when (not (package-installed-p 'bind-key))
+  (package-refresh-contents)
+  (package-install 'bind-key))
 
 ;; Load configuration
 (org-babel-load-file "~/.emacs.d/conf.org")

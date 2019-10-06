@@ -8,6 +8,8 @@ Ensure that =use-package= installs the package if it is not already installed, a
 
 #+BEGIN_SRC emacs-lisp
   (require 'use-package-ensure)
+  (require 'diminish)
+  (require 'bind-key)
   (setq use-package-always-ensure t)
 
   (use-package auto-compile
