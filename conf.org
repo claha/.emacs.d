@@ -303,6 +303,7 @@ Use spell checking when writing normal text.
 
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell
+    :diminish flyspell-mode
     :config
     (add-hook 'text-mode-hook 'turn-on-auto-fill)
     (add-hook 'org-mode-hook 'flyspell-mode)
