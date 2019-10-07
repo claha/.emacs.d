@@ -91,10 +91,12 @@ Configure mode line without icon and showing minor modes and buffer name.
 
 #+BEGIN_SRC emacs-lisp
   (use-package doom-modeline
-    :hook (after-init . doom-modeline-mode))
-  (setq doom-modeline-icon nil)
-  (setq doom-modeline-minor-modes t)
-  (setq doom-modeline-buffer-file-name-style 'buffer-name)
+    :hook (after-init . doom-modeline-mode)
+    :config
+    (setq doom-modeline-buffer-encoding nil)
+    (setq doom-modeline-icon nil)
+    (setq doom-modeline-minor-modes t)
+    (setq doom-modeline-buffer-file-name-style 'buffer-name))
 #+END_SRC
 * Configure Org
 
