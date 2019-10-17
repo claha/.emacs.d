@@ -168,9 +168,9 @@ Show some extra help using =which-key=.
     :diminish which-key-mode
     :config (which-key-mode))
 #+END_SRC
-* Configure =ivy=
+* Configure =ivy= and =counsel=
 
-Install ivy and some basic configuration.
+Install ivy and counsel and some basic configuration.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ivy
@@ -184,6 +184,17 @@ Install ivy and some basic configuration.
     (setq ivy-sort-matches-functions-alist
           '((t . ivy--prefix-sort)))
     (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial))
+
+  (use-package counsel
+    :diminish counsel-mode
+    :config
+    (counsel-mode 1)
+    (setq counsel-find-file-ignore-regexp
+            (concat
+             ;; file names beginning with #
+             "\\(?:\\`[#]\\)"
+             ;; file names ending with # or ~
+             "\\|\\(?:[#~]\\'\\)")))
 #+END_SRC
 * Miscellaneous
 
