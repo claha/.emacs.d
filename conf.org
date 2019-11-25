@@ -345,9 +345,12 @@ Install ripgrep.
 #+END_SRC
 * Version control
 
-Use git-commit.
+Use magit and git-commit.
 
 #+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :bind (("C-x g" . magit-status)))
+
   (use-package git-commit
     :defer t)
   (setq git-commit-summary-max-length 50)
