@@ -345,7 +345,7 @@ Install ripgrep.
 #+END_SRC
 * Version control
 
-Use magit and git-commit.
+Use magit and git-commit. Also add diff-hl to highlight changes.
 
 #+BEGIN_SRC emacs-lisp
   (use-package magit
@@ -360,6 +360,12 @@ Use magit and git-commit.
     "Ensures that the commit body does not exceed 72 characters."
     (setq fill-column 72)
     (setq-local comment-auto-fill-only-comments nil))
+
+  (use-package diff-hl
+    :config
+    (setq diff-hl-side 'right)
+    (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+    (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 #+END_SRC
 * Flycheck
 
