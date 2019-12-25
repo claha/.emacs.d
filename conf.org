@@ -271,6 +271,13 @@ Quickly change to the other window.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-o") 'other-window)
 #+END_SRC
+* Window Movement
+Use ace-window when switching between windows.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ace-window
+    :bind ("C-x o" . ace-window))
+#+END_SRC
 * Dired
 
 Set the flags passed to ls by dired.
