@@ -243,10 +243,22 @@ Delete all the white space when hitting backspace or delete.
     :config (global-hungry-delete-mode))
 #+END_SRC
 
+Kill compilation process before starting another.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default compilation-always-kill t)
+#+END_SRC
+
+Save all buffers before compile.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default compilation-ask-about-save nil)
+#+END_SRC
+
 Scroll compilation buffer to first error, will scroll to bottom if no error.
 
 #+BEGIN_SRC emacs-lisp
-  (setq compilation-scroll-output 'first-error)
+  (setq-default compilation-scroll-output 'first-error)
 #+END_SRC
 
 Colorize compilation buffer.
