@@ -192,6 +192,17 @@ Install ivy and counsel and some basic configuration.
             #'ivy-format-function-line)
     (ivy-rich-mode 1))
 
+  (use-package ivy-posframe
+    :diminish ivy-posframe-mode
+    :custom
+    (ivy-posframe-height-alist
+     '((t . 10)))
+    (ivy-posframe-display-functions-alist
+     '((counsel-find-file . nil)
+       (t . ivy-posframe-display-at-frame-center)))
+    :config
+    (ivy-posframe-mode 1))
+
   (use-package counsel
     :diminish counsel-mode
     :config
