@@ -281,6 +281,21 @@ Colorize compilation buffer.
   (defun colorize-compilation-buffer ()
     (ansi-color-apply-on-region compilation-filter-start (point)))
 #+END_SRC
+* Completion
+
+Configure dabbrev.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dabbrev
+    :custom
+    (dabbrev-abbrev-char-regexp nil)
+    (dabbrev-backward-only nil)
+    (dabbrev-case-distinction nil)
+    (dabbrev-case-fold-search t)
+    (dabbrev-case-replace nil)
+    (dabbrev-eliminate-newlines nil)
+    (dabbrev-upcase-means-case-search t))
+#+END_SRC
 * Keybindings
 
 Execute the very useful dynamic abbreviation expand.
