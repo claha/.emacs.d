@@ -362,13 +362,6 @@ Install ag (the silver searcher).
   (use-package ag
     :defer t)
 #+END_SRC
-
-Install ripgrep.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package rg
-    :defer t)
-#+END_SRC
 * Version control
 
 Use magit and git-commit. Also add diff-hl to highlight changes.
