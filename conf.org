@@ -147,11 +147,10 @@ Install needed package to be able to export to HTML.
     :defer t)
 #+END_SRC
 
-Use Firefox to view generated file.
+Use eww to browse urls.
 
 #+BEGIN_SRC emacs-lisp
-  (setq browse-url-browser-function 'browse-url-generic
-	browse-url-generic-program "firefox")
+  (setq browse-url-browser-function 'eww-browse-url)
 #+END_SRC
 
 Do not include footer.
