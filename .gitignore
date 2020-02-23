@@ -9,3 +9,4 @@ recentf
 private.el
 .backup
 transient
+server/*
