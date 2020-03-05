@@ -484,7 +484,8 @@ Configure dumb-jump.
   (use-package dumb-jump
     :bind (("M-." . dumb-jump-go)
            ("M-," . dumb-jump-back))
-    :config (setq dumb-jump-selector 'ivy))
+    :config (setq dumb-jump-selector 'ivy)
+            (setq dumb-jump-force-searcher 'ag))
 #+END_SRC
 * Private
 
