@@ -302,12 +302,6 @@ Execute the very useful dynamic abbreviation expand.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-.") 'dabbrev-expand)
 #+END_SRC
-
-Quickly change to the other window.
-
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "M-o") 'other-window)
-#+END_SRC
 * Window Movement
 Use ace-window when switching between windows.
 
