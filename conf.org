@@ -386,7 +386,7 @@ Use magit and git-commit. Also add diff-hl to highlight changes.
 
 #+BEGIN_SRC emacs-lisp
   (use-package magit
-    :bind (("C-x g" . magit-status)))
+    :bind (("C-c g" . magit-status)))
 
   (use-package git-commit
     :defer t)
