@@ -458,18 +458,6 @@ Enable yasnippet, will only use snippets defined locally in snippets directory.
     :diminish yas-minor-mode
     :config (yas-global-mode 1))
 #+END_SRC
-* Grep
-
-Hide header when using rgrep using narrowing.
-
-#+BEGIN_SRC emacs-lisp
-  (defun delete-grep-header ()
-    (save-excursion
-      (with-current-buffer grep-last-buffer
-        (goto-line 5)
-        (narrow-to-region (point) (point-max)))))
-  (defadvice rgrep (after delete-grep-header activate) (delete-grep-header))
-#+END_SRC
 * Dumb Jump
 
 Configure dumb-jump.
