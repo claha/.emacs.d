@@ -431,16 +431,6 @@ Install Hydra.
   (use-package hydra
     :defer t)
 #+END_SRC
-* Go
-
-Install and configure golang.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package go-mode
-    :defer t
-    :init
-    (add-hook 'before-save-hook 'gofmt-before-save))
-#+END_SRC
 * C/C++
 
 Configure c/c++ indentation.
