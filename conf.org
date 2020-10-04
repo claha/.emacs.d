@@ -100,13 +100,6 @@ Configure mode line without icon and showing minor modes and buffer name.
 #+END_SRC
 * Configure Org
 
-Install latest version of Org.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package org
-    :defer t)
-#+END_SRC
-
 Make it prettier using bullets and downward-pointing arrow.
 
 #+BEGIN_SRC emacs-lisp
