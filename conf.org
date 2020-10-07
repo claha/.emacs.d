@@ -396,15 +396,6 @@ Configure c/c++ indentation.
   (setq c-default-style "linux" c-basic-offset 2)
   (c-set-offset 'case-label '+)
 #+END_SRC
-* Yasnippet
-
-Enable yasnippet, will only use snippets defined locally in snippets directory.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package yasnippet
-    :diminish yas-minor-mode
-    :config (yas-global-mode 1))
-#+END_SRC
 * Dumb Jump
 
 Dumb Jump is an Emacs "jump to definition" package with support for
