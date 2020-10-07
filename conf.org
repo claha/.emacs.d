@@ -98,59 +98,19 @@ Configure mode line without icon and showing minor modes and buffer name.
     (setq doom-modeline-minor-modes t)
     (setq doom-modeline-buffer-file-name-style 'buffer-name))
 #+END_SRC
-* Configure Org
+* Org-mode
 
-Make it prettier using bullets and downward-pointing arrow.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
-    :defer t
-    :init
-    (add-hook 'org-mode-hook 'org-bullets-mode))
-
-  (setq org-ellipsis "⤵")
-#+END_SRC
-
-Configure source window to behave naively and to open in separate window.
+Configure org source code blocks.
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-src-fontify-natively t)
-  (setq org-src-tabs-acts-natively t)
+(use-package org
+  :config
   (setq org-src-window-setup 'current-window)
+  (setq org-src-fontify-natively t)
+  (setq org-src-preserve-indentation t)
+  (setq org-src-tab-acts-natively t))
 #+END_SRC
 
-Configure languages that babel should evaluate and do not ask before evaluating.
-
-#+BEGIN_SRC emacs-lisp
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-
-   '((emacs-lisp . t)
-     (python . t)))
-
-  (setq org-confirm-babel-evaluate nil)
-#+END_SRC
-
-** Export to HTML
-
-Install needed package to be able to export to HTML.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package htmlize
-    :defer t)
-#+END_SRC
-
-Use eww to browse urls.
-
-#+BEGIN_SRC emacs-lisp
-  (setq browse-url-browser-function 'eww-browse-url)
-#+END_SRC
-
-Do not include footer.
-
-#+BEGIN_SRC emacs-lisp
-  (setq org-html-postamble nil)
-#+END_SRC
 * Configure =which-key=
 
 Show some extra help using =which-key=.
@@ -207,6 +167,12 @@ Install ivy and counsel and some basic configuration.
              "\\|\\(?:[#~]\\'\\)")))
 #+END_SRC
 * Miscellaneous
+
+Use eww to browse urls.
+
+#+BEGIN_SRC emacs-lisp
+  (setq browse-url-browser-function 'eww-browse-url)
+#+END_SRC
 
 Tabs are evil.
 
