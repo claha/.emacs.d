@@ -325,8 +325,10 @@ Use spell checking when writing normal text.
 Use avy to search by first letter of a word.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package avy
-    :defer t)
+(use-package avy
+  :defer t
+  :init
+  (avy-setup-default))
 #+END_SRC
 
 Install ag (the silver searcher).
