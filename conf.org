@@ -240,22 +240,18 @@ Colorize compilation buffer.
 Configure dabbrev.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package dabbrev
-    :custom
-    (dabbrev-abbrev-char-regexp nil)
-    (dabbrev-backward-only nil)
-    (dabbrev-case-distinction nil)
-    (dabbrev-case-fold-search t)
-    (dabbrev-case-replace nil)
-    (dabbrev-eliminate-newlines nil)
-    (dabbrev-upcase-means-case-search t))
-#+END_SRC
-* Keybindings
-
-Execute the very useful dynamic abbreviation expand.
-
-#+BEGIN_SRC emacs-lisp
+(use-package dabbrev
+  :custom
+  (dabbrev-abbrev-char-regexp nil)
+  (dabbrev-backward-only nil)
+  (dabbrev-case-distinction nil)
+  (dabbrev-case-fold-search t)
+  (dabbrev-case-replace nil)
+  (dabbrev-eliminate-newlines nil)
+  (dabbrev-upcase-means-case-search t)
+  :config
   (global-set-key (kbd "C-.") 'dabbrev-expand)
+  (global-set-key (kbd "C-:") 'dabbrev-completion))
 #+END_SRC
 * Window Movement
 Use ace-window when switching between windows.
