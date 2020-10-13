@@ -107,15 +107,6 @@ Configure org source code blocks.
   (setq org-src-tab-acts-natively t))
 #+END_SRC
 
-* Configure =which-key=
-
-Show some extra help using =which-key=.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package which-key
-    :diminish which-key-mode
-    :config (which-key-mode))
-#+END_SRC
 * Configure =ivy= and =counsel=
 
 Install ivy and counsel and some basic configuration.
@@ -163,6 +154,14 @@ Install ivy and counsel and some basic configuration.
              "\\|\\(?:[#~]\\'\\)")))
 #+END_SRC
 * Miscellaneous
+
+Show some extra help using =which-key=.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :diminish which-key-mode
+    :config (which-key-mode))
+#+END_SRC
 
 Use eww to browse urls.
 
@@ -235,6 +234,46 @@ Colorize compilation buffer.
   (defun colorize-compilation-buffer ()
     (ansi-color-apply-on-region compilation-filter-start (point)))
 #+END_SRC
+
+Install CMake mode.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package cmake-mode
+    :defer t)
+#+END_SRC
+
+Install Hydra.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package hydra
+    :defer t)
+#+END_SRC
+Enable flycheck globally.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :diminish flycheck-mode
+    :defer t
+    :init
+    (global-flycheck-mode t))
+#+END_SRC
+Configure c/c++ indentation.
+
+#+BEGIN_SRC emacs-lisp
+  (setq c-default-style "linux" c-basic-offset 2)
+  (c-set-offset 'case-label '+)
+#+END_SRC
+
+Use spell checking when writing normal text.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flyspell
+    :diminish flyspell-mode
+    :config
+    (add-hook 'text-mode-hook 'turn-on-auto-fill)
+    (add-hook 'org-mode-hook 'flyspell-mode)
+    (add-hook 'git-commit-mode-hook 'flyspell-mode))
+#+END_SRC
 * Completion
 
 Configure dabbrev.
@@ -304,18 +343,6 @@ Assume that I always want to kill the current buffer.
     (kill-buffer (current-buffer)))
   (global-set-key (kbd "C-x k") 'claha/kill-current-buffer)
 #+END_SRC
-* Spell checking
-
-Use spell checking when writing normal text.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package flyspell
-    :diminish flyspell-mode
-    :config
-    (add-hook 'text-mode-hook 'turn-on-auto-fill)
-    (add-hook 'org-mode-hook 'flyspell-mode)
-    (add-hook 'git-commit-mode-hook 'flyspell-mode))
-#+END_SRC
 * Searching and jumping
 
 Jump to things in Emacs tree-style.
@@ -366,41 +393,6 @@ Use magit and git-commit. Also add diff-hl to highlight changes.
     (setq diff-hl-side 'right)
     (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
     (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
-#+END_SRC
-* Flycheck
-
-Enable flycheck globally.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :diminish flycheck-mode
-    :defer t
-    :init
-    (global-flycheck-mode t))
-#+END_SRC
-* CMake
-
-Install CMake mode.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package cmake-mode
-    :defer t)
-#+END_SRC
-* Hydra
-
-Install Hydra.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package hydra
-    :defer t)
-#+END_SRC
-* C/C++
-
-Configure c/c++ indentation.
-
-#+BEGIN_SRC emacs-lisp
-  (setq c-default-style "linux" c-basic-offset 2)
-  (c-set-offset 'case-label '+)
 #+END_SRC
 * Private
 
