@@ -94,140 +94,6 @@ Configure mode line without icon and showing minor modes and buffer name.
     (setq doom-modeline-minor-modes t)
     (setq doom-modeline-buffer-file-name-style 'buffer-name))
 #+END_SRC
-* Org-mode
-
-Configure org source code blocks.
-
-#+BEGIN_SRC emacs-lisp
-(use-package org
-  :config
-  (setq org-src-window-setup 'current-window)
-  (setq org-src-fontify-natively t)
-  (setq org-src-preserve-indentation t)
-  (setq org-src-tab-acts-natively t))
-#+END_SRC
-
-* Miscellaneous
-
-Show some extra help using =which-key=.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package which-key
-    :diminish which-key-mode
-    :config (which-key-mode))
-#+END_SRC
-
-Use eww to browse urls.
-
-#+BEGIN_SRC emacs-lisp
-  (setq browse-url-browser-function 'eww-browse-url)
-#+END_SRC
-
-Tabs are evil.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default indent-tabs-mode nil)
-#+END_SRC
-
-Writing 'yes/no' takes to much time...
-
-#+BEGIN_SRC emacs-lisp
-  (fset 'yes-or-no-p 'y-or-n-p)
-#+END_SRC
-
-Use 4 as default tab width, 8 is to much.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default tab-width 4)
-#+END_SRC
-
-Allow to change case of region.
-
-#+BEGIN_SRC emacs-lisp
-  (put 'downcase-region 'disabled nil)
-  (put 'upcase-region 'disabled nil)
-#+END_SRC
-
-Allow narrowing.
-
-#+BEGIN_SRC emacs-lisp
-  (put 'narrow-to-region 'disabled nil)
-#+END_SRC
-
-Delete all the white space when hitting backspace or delete.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package hungry-delete
-    :config (global-hungry-delete-mode))
-#+END_SRC
-
-Kill compilation process before starting another.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default compilation-always-kill t)
-#+END_SRC
-
-Save all buffers before compile.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default compilation-ask-about-save nil)
-#+END_SRC
-
-Scroll compilation buffer to first error, will scroll to bottom if no error.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default compilation-scroll-output 'first-error)
-#+END_SRC
-
-Colorize compilation buffer.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ansi-color
-    :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
-
-  (defun colorize-compilation-buffer ()
-    (ansi-color-apply-on-region compilation-filter-start (point)))
-#+END_SRC
-
-Install CMake mode.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package cmake-mode
-    :defer t)
-#+END_SRC
-
-Install Hydra.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package hydra
-    :defer t)
-#+END_SRC
-Enable flycheck globally.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :diminish flycheck-mode
-    :defer t
-    :init
-    (global-flycheck-mode t))
-#+END_SRC
-Configure c/c++ indentation.
-
-#+BEGIN_SRC emacs-lisp
-  (setq c-default-style "linux" c-basic-offset 2)
-  (c-set-offset 'case-label '+)
-#+END_SRC
-
-Use spell checking when writing normal text.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package flyspell
-    :diminish flyspell-mode
-    :config
-    (add-hook 'text-mode-hook 'turn-on-auto-fill)
-    (add-hook 'org-mode-hook 'flyspell-mode)
-    (add-hook 'git-commit-mode-hook 'flyspell-mode))
-#+END_SRC
 * Completion
 
 Ivy - a generic completion frontend for Emacs.
@@ -389,6 +255,140 @@ It's Magit! A Git porcelain inside Emacs.
   (setq diff-hl-side 'right)
   (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
   (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+#+END_SRC
+* Org-mode
+
+Configure org source code blocks.
+
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :config
+  (setq org-src-window-setup 'current-window)
+  (setq org-src-fontify-natively t)
+  (setq org-src-preserve-indentation t)
+  (setq org-src-tab-acts-natively t))
+#+END_SRC
+
+* Miscellaneous
+
+Show some extra help using =which-key=.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :diminish which-key-mode
+    :config (which-key-mode))
+#+END_SRC
+
+Use eww to browse urls.
+
+#+BEGIN_SRC emacs-lisp
+  (setq browse-url-browser-function 'eww-browse-url)
+#+END_SRC
+
+Tabs are evil.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+#+END_SRC
+
+Writing 'yes/no' takes to much time...
+
+#+BEGIN_SRC emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+Use 4 as default tab width, 8 is to much.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default tab-width 4)
+#+END_SRC
+
+Allow to change case of region.
+
+#+BEGIN_SRC emacs-lisp
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil)
+#+END_SRC
+
+Allow narrowing.
+
+#+BEGIN_SRC emacs-lisp
+  (put 'narrow-to-region 'disabled nil)
+#+END_SRC
+
+Delete all the white space when hitting backspace or delete.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package hungry-delete
+    :config (global-hungry-delete-mode))
+#+END_SRC
+
+Kill compilation process before starting another.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default compilation-always-kill t)
+#+END_SRC
+
+Save all buffers before compile.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default compilation-ask-about-save nil)
+#+END_SRC
+
+Scroll compilation buffer to first error, will scroll to bottom if no error.
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default compilation-scroll-output 'first-error)
+#+END_SRC
+
+Colorize compilation buffer.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ansi-color
+    :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
+
+  (defun colorize-compilation-buffer ()
+    (ansi-color-apply-on-region compilation-filter-start (point)))
+#+END_SRC
+
+Install CMake mode.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package cmake-mode
+    :defer t)
+#+END_SRC
+
+Install Hydra.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package hydra
+    :defer t)
+#+END_SRC
+Enable flycheck globally.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :diminish flycheck-mode
+    :defer t
+    :init
+    (global-flycheck-mode t))
+#+END_SRC
+Configure c/c++ indentation.
+
+#+BEGIN_SRC emacs-lisp
+  (setq c-default-style "linux" c-basic-offset 2)
+  (c-set-offset 'case-label '+)
+#+END_SRC
+
+Use spell checking when writing normal text.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flyspell
+    :diminish flyspell-mode
+    :config
+    (add-hook 'text-mode-hook 'turn-on-auto-fill)
+    (add-hook 'org-mode-hook 'flyspell-mode)
+    (add-hook 'git-commit-mode-hook 'flyspell-mode))
 #+END_SRC
 * Private
 
