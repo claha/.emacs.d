@@ -316,9 +316,9 @@ Use spell checking when writing normal text.
     (add-hook 'org-mode-hook 'flyspell-mode)
     (add-hook 'git-commit-mode-hook 'flyspell-mode))
 #+END_SRC
-* Searching
+* Searching and jumping
 
-Use avy to search by first letter of a word.
+Jump to things in Emacs tree-style.
 
 #+BEGIN_SRC emacs-lisp
 (use-package avy
@@ -327,11 +327,21 @@ Use avy to search by first letter of a word.
   (avy-setup-default))
 #+END_SRC
 
-Install ag (the silver searcher).
+An Emacs frontend to The Silver Searcher.
 
 #+BEGIN_SRC emacs-lisp
   (use-package ag
     :defer t)
+#+END_SRC
+
+An Emacs "jump to definition" package for 40+ languages.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dumb-jump
+    :config
+    (setq dumb-jump-selector 'ivy)
+    (setq dumb-jump-force-searcher 'ag)
+    (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
 * Version control
 
@@ -391,21 +401,6 @@ Configure c/c++ indentation.
 #+BEGIN_SRC emacs-lisp
   (setq c-default-style "linux" c-basic-offset 2)
   (c-set-offset 'case-label '+)
-#+END_SRC
-* Dumb Jump
-
-Dumb Jump is an Emacs "jump to definition" package with support for
-40+ programming languages that favors "just working". This means
-minimal -- and ideally zero -- configuration with absolutely no stored
-indexes (TAGS) or persistent background processes. Dumb Jump requires
-at least GNU Emacs 24.3.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package dumb-jump
-    :config
-    (setq dumb-jump-selector 'ivy)
-    (setq dumb-jump-force-searcher 'ag)
-    (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
 * Private
 
