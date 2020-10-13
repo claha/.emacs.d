@@ -18,27 +18,30 @@ Ensure that =use-package= installs the package if it is not already installed, a
 
   (setq load-prefer-newer t)
 #+END_SRC
-* Emacs customization's
+* Customization and backup
 
 Save Emacs customization settings in a separate file.
 
 #+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-  (load custom-file)
+  (load custom-file))
 #+END_SRC
 
 Save Emacs backup files elsewhere.
 
 #+BEGIN_SRC emacs-lisp
-  (setq backup-directory-alist `(("." . ,(expand-file-name ".backup" user-emacs-directory))))
-
-  (setq delete-old-versions t
-        kept-new-versions 6
-        kept-old-versions 2
-        version-control t)
-
+(use-package emacs
+  :config
+  (setq backup-directory-alist
+        `(("." . ,(expand-file-name ".backup" user-emacs-directory))))
+  (setq delete-old-versions t)
+  (setq kept-new-versions 6)
+  (setq kept-old-versions 2)
+  (setq version-control t)
   (setq auto-save-file-name-transforms
-        `((".*" ,(expand-file-name ".backup" user-emacs-directory))))
+        `((".*" ,(expand-file-name ".backup" user-emacs-directory)))))
 #+END_SRC
 * Appearance
 
