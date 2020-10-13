@@ -291,56 +291,54 @@ Configure dabbrev.
   (global-set-key (kbd "C-.") 'dabbrev-expand)
   (global-set-key (kbd "C-:") 'dabbrev-completion))
 #+END_SRC
-* Window Movement
-Use ace-window when switching between windows.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ace-window
-    :bind ("C-x o" . ace-window))
-#+END_SRC
-* Dired
-
-Set the flags passed to ls by dired.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default dired-listing-switches "-lhva")
-#+END_SRC
-
-Hide details by default, toggle with =(= when in dired.
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
-#+END_SRC
-* Buffer
+* Buffers and windows
 
 Use ibuffer instead.
 
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 #+END_SRC
 
 Do not ask for confirmation to delete marked buffers.
 
 #+BEGIN_SRC emacs-lisp
-  (setq ibuffer-expert t)
+(setq ibuffer-expert t)
 #+END_SRC
 
 Keep the buffer list up to date.
 
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'buffer-mode-hook
-            '(lambda ()
-               (ibuffer-auto-mode 1)))
+(add-hook 'buffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1)))
 #+END_SRC
 
 Assume that I always want to kill the current buffer.
 
 #+BEGIN_SRC emacs-lisp
-  (defun claha/kill-current-buffer ()
-    "Kill the current buffer without prompting."
-    (interactive)
-    (kill-buffer (current-buffer)))
-  (global-set-key (kbd "C-x k") 'claha/kill-current-buffer)
+(global-set-key (kbd "C-x k")
+                '(lambda()
+                   (interactive)
+                   (kill-buffer (current-buffer))))
+#+END_SRC
+
+Quickly switch windows in Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ace-window
+  :bind ("C-x o" . ace-window))
+#+END_SRC
+
+Set the flags passed to ls by dired.
+
+#+BEGIN_SRC emacs-lisp
+(setq-default dired-listing-switches "-lhva")
+#+END_SRC
+
+Hide details by default, toggle with =(= when in dired.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
 #+END_SRC
 * Searching and jumping
 
