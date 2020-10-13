@@ -369,27 +369,26 @@ An Emacs "jump to definition" package for 40+ languages.
 #+END_SRC
 * Version control
 
-Use magit and git-commit. Also add diff-hl to highlight changes.
+It's Magit! A Git porcelain inside Emacs.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :bind (("C-c g" . magit-status)))
+(use-package magit
+  :bind (("C-c g" . magit-status)))
 
-  (use-package git-commit
-    :defer t)
+(use-package git-commit
+  :defer t
+  :config
   (setq git-commit-summary-max-length 50)
-  (add-hook 'git-commit-mode-hook 'claha/git-commit-auto-fill-everywhere)
+  (add-hook 'git-commit-mode-hook
+            '(lambda ()
+               (setq fill-column 72)
+               (setq-local comment-auto-fill-only-comments nil))))
 
-  (defun claha/git-commit-auto-fill-everywhere ()
-    "Ensures that the commit body does not exceed 72 characters."
-    (setq fill-column 72)
-    (setq-local comment-auto-fill-only-comments nil))
-
-  (use-package diff-hl
-    :config
-    (setq diff-hl-side 'right)
-    (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-    (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+(use-package diff-hl
+  :config
+  (setq diff-hl-side 'right)
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 #+END_SRC
 * Private
 
