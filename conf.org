@@ -107,52 +107,6 @@ Configure org source code blocks.
   (setq org-src-tab-acts-natively t))
 #+END_SRC
 
-* Configure =ivy= and =counsel=
-
-Install ivy and counsel and some basic configuration.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package ivy
-    :diminish ivy-mode
-    :config
-    (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-count-format "")
-    (setq ivy-display-style 'fancy)
-    (setq ivy-extra-directories ())
-    (setq ivy-sort-matches-functions-alist
-          '((t . ivy--prefix-sort)))
-    (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial))
-
-  (use-package ivy-rich
-    :ensure t
-    :config
-    (setcdr (assq t ivy-format-functions-alist)
-            #'ivy-format-function-line)
-    (ivy-rich-mode 1))
-
-  (use-package ivy-posframe
-    :diminish ivy-posframe-mode
-    :custom
-    (ivy-posframe-height-alist
-     '((t . 10)))
-    (ivy-posframe-display-functions-alist
-     '((counsel-find-file . nil)
-       (t . ivy-posframe-display-at-frame-center)))
-    :config
-    (ivy-posframe-mode 1))
-
-  (use-package counsel
-    :diminish counsel-mode
-    :config
-    (counsel-mode 1)
-    (setq counsel-find-file-ignore-regexp
-            (concat
-             ;; file names beginning with #
-             "\\(?:\\`[#]\\)"
-             ;; file names ending with # or ~
-             "\\|\\(?:[#~]\\'\\)")))
-#+END_SRC
 * Miscellaneous
 
 Show some extra help using =which-key=.
@@ -275,6 +229,51 @@ Use spell checking when writing normal text.
     (add-hook 'git-commit-mode-hook 'flyspell-mode))
 #+END_SRC
 * Completion
+
+Ivy - a generic completion frontend for Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ivy
+  :diminish ivy-mode
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "")
+  (setq ivy-display-style 'fancy)
+  (setq ivy-extra-directories ())
+  (setq ivy-sort-matches-functions-alist
+        '((t . ivy--prefix-sort)))
+  (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial))
+
+(use-package ivy-rich
+  :ensure t
+  :config
+  (setcdr (assq t ivy-format-functions-alist)
+          #'ivy-format-function-line)
+  (ivy-rich-mode 1))
+
+(use-package ivy-posframe
+  :diminish ivy-posframe-mode
+  :custom
+  (ivy-posframe-height-alist
+   '((t . 10)))
+  (ivy-posframe-display-functions-alist
+   '((counsel-find-file . nil)
+     (t . ivy-posframe-display-at-frame-center)))
+  :config
+  (ivy-posframe-mode 1))
+
+(use-package counsel
+  :diminish counsel-mode
+  :config
+  (counsel-mode 1)
+  (setq counsel-find-file-ignore-regexp
+          (concat
+           ;; file names beginning with #
+           "\\(?:\\`[#]\\)"
+           ;; file names ending with # or ~
+           "\\|\\(?:[#~]\\'\\)")))
+#+END_SRC
 
 Configure dabbrev.
 
