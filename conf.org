@@ -53,49 +53,36 @@ Configure the appearance of Emacs.
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
+  (global-hl-line-mode 1)
+  (show-paren-mode 1)
+  (global-linum-mode t)
   :config
   (setq inhibit-startup-message t)
   (setq initial-scratch-message nil)
-  (set-window-scroll-bars (minibuffer-window) nil nil))
-#+END_SRC
-
-Highlight current line and visually indicate matching pairs of parentheses.
-
-#+BEGIN_SRC emacs-lisp
-  (global-hl-line-mode 1)
-
-  (show-paren-mode 1)
+  (set-window-scroll-bars (minibuffer-window) nil nil)
   (setq show-paren-delay 0.0)
-#+END_SRC
-
-Configure to show line and column numbers.
-
-#+BEGIN_SRC emacs-lisp
-  (global-linum-mode t)
   (setq line-number-mode t)
-  (setq column-number-mode t)
+  (setq column-number-mode t))
 #+END_SRC
 
-** Theme
-
-Install and load ==material-theme==
+Install and load material-theme
 
 #+BEGIN_SRC emacs-lisp
-  (use-package material-theme
-    :config (load-theme 'material t))
+(use-package material-theme
+  :config
+  (load-theme 'material t))
 #+END_SRC
-** Mode line
 
 Configure mode line without icon and showing minor modes and buffer name.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package doom-modeline
-    :hook (after-init . doom-modeline-mode)
-    :config
-    (setq doom-modeline-buffer-encoding nil)
-    (setq doom-modeline-icon nil)
-    (setq doom-modeline-minor-modes t)
-    (setq doom-modeline-buffer-file-name-style 'buffer-name))
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-buffer-encoding nil)
+  (setq doom-modeline-icon nil)
+  (setq doom-modeline-minor-modes t)
+  (setq doom-modeline-buffer-file-name-style 'buffer-name))
 #+END_SRC
 * Completion
 
