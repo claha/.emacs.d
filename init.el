@@ -3,22 +3,28 @@
 
 ;; Configure package.el to include MELPA.
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
 
-;; Ensure that use-package is installed.
-(when (not (package-installed-p 'use-package))
+;; Configure and install use-package
+(unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(when (not (package-installed-p 'diminish))
-  (package-refresh-contents)
-  (package-install 'diminish))
-(when (not (package-installed-p 'bind-key))
-  (package-refresh-contents)
-  (package-install 'bind-key))
+
+(eval-and-compile
+  (setq use-package-always-ensure nil)
+  (setq use-package-always-defer nil)
+  (setq use-package-always-demand nil)
+  (setq use-package-expand-minimally nil)
+  (setq use-package-enable-imenu-support t)
+  (setq use-package-compute-statistics nil))
+
+(eval-when-compile
+  (require 'use-package))
 
 ;; Load configuration
-(org-babel-load-file "~/.emacs.d/conf.org")
+(use-package org)
+(org-babel-load-file (expand-file-name "conf.org" user-emacs-directory))
 
 ;; Make gc pauses faster by decreasing the threshold.
 (setq gc-cons-threshold (* 2 1000 1000))

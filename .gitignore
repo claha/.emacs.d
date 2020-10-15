@@ -11,3 +11,4 @@ private.el
 transient
 server/*
 custom.el
+package-quickstart.el
