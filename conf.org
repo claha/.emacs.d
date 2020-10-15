@@ -261,124 +261,100 @@ Configure org source code blocks.
 
 * Miscellaneous
 
-Show some extra help using =which-key=.
+Miscellaneous packages.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package which-key
-    :diminish which-key-mode
-    :config (which-key-mode))
+(use-package which-key
+  :diminish which-key-mode
+  :config
+  (which-key-mode))
+
+(use-package hungry-delete
+  :config
+  (global-hungry-delete-mode))
+
+(use-package cmake-mode
+  :defer t)
+
+(use-package hydra
+  :defer t)
+
+(use-package flycheck
+  :diminish flycheck-mode
+  :defer t
+  :init
+  (global-flycheck-mode t))
+
+(use-package flyspell
+  :diminish flyspell-mode
+  :config
+  (add-hook 'text-mode-hook 'turn-on-auto-fill)
+  (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'git-commit-mode-hook 'flyspell-mode))
 #+END_SRC
 
-Use eww to browse urls.
+Use eww to browse.
 
 #+BEGIN_SRC emacs-lisp
-  (setq browse-url-browser-function 'eww-browse-url)
+(use-package emacs
+  :config
+  (setq browse-url-browser-function 'eww-browse-url))
 #+END_SRC
 
-Tabs are evil.
+Tabs are evil, use 4 spaces as default.
 
 #+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
   (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4))
 #+END_SRC
 
 Writing 'yes/no' takes to much time...
 
 #+BEGIN_SRC emacs-lisp
-  (fset 'yes-or-no-p 'y-or-n-p)
+(use-package emacs
+  :config
+  (defalias 'yes-or-no-p 'y-or-n-p))
 #+END_SRC
 
-Use 4 as default tab width, 8 is to much.
+Allow to change case of region and narrowing.
 
 #+BEGIN_SRC emacs-lisp
-  (setq-default tab-width 4)
-#+END_SRC
-
-Allow to change case of region.
-
-#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil))
 #+END_SRC
 
-Allow narrowing.
+Setup how compilation should behave.
 
 #+BEGIN_SRC emacs-lisp
-  (put 'narrow-to-region 'disabled nil)
-#+END_SRC
-
-Delete all the white space when hitting backspace or delete.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package hungry-delete
-    :config (global-hungry-delete-mode))
-#+END_SRC
-
-Kill compilation process before starting another.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default compilation-always-kill t)
-#+END_SRC
-
-Save all buffers before compile.
-
-#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
   (setq-default compilation-ask-about-save nil)
+  (setq-default compilation-always-kill t)
+  (setq-default compilation-scroll-output 'first-error))
 #+END_SRC
 
-Scroll compilation buffer to first error, will scroll to bottom if no error.
+# Colorize compilation buffer.
 
-#+BEGIN_SRC emacs-lisp
-  (setq-default compilation-scroll-output 'first-error)
-#+END_SRC
+# #+BEGIN_SRC emacs-lisp
+#   (use-package ansi-color
+#     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
 
-Colorize compilation buffer.
+#   (defun colorize-compilation-buffer ()
+#     (ansi-color-apply-on-region compilation-filter-start (point)))
+# #+END_SRC
 
-#+BEGIN_SRC emacs-lisp
-  (use-package ansi-color
-    :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
-
-  (defun colorize-compilation-buffer ()
-    (ansi-color-apply-on-region compilation-filter-start (point)))
-#+END_SRC
-
-Install CMake mode.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package cmake-mode
-    :defer t)
-#+END_SRC
-
-Install Hydra.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package hydra
-    :defer t)
-#+END_SRC
-Enable flycheck globally.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :diminish flycheck-mode
-    :defer t
-    :init
-    (global-flycheck-mode t))
-#+END_SRC
 Configure c/c++ indentation.
 
 #+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
   (setq c-default-style "linux" c-basic-offset 2)
-  (c-set-offset 'case-label '+)
-#+END_SRC
-
-Use spell checking when writing normal text.
-
-#+BEGIN_SRC emacs-lisp
-  (use-package flyspell
-    :diminish flyspell-mode
-    :config
-    (add-hook 'text-mode-hook 'turn-on-auto-fill)
-    (add-hook 'org-mode-hook 'flyspell-mode)
-    (add-hook 'git-commit-mode-hook 'flyspell-mode))
+  (c-set-offset 'case-label '+))
 #+END_SRC
 * Private
 
