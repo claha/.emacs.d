@@ -26,7 +26,13 @@ Save Emacs customization settings in a separate file.
 (use-package emacs
   :config
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-  (load custom-file))
+  (defun load-custom-file ()
+    (let ((file (symbol-value 'custom-file)))
+          (unless (file-exists-p file)
+            (make-empty-file file))
+          (load-file file)))
+  :hook
+  (after-init . load-custom-file))
 #+END_SRC
 
 Save Emacs backup files elsewhere.
