@@ -236,6 +236,10 @@ It's Magit! A Git porcelain inside Emacs.
    #'magit-display-buffer-fullframe-status-v1)
   :bind (("C-c g" . magit-status)))
 
+(use-package forge
+  :after magit
+  :ensure)
+
 (use-package git-commit
   :defer t
   :config
@@ -252,6 +256,12 @@ It's Magit! A Git porcelain inside Emacs.
   (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
   (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 #+END_SRC
+
+Example of ~/.authinfo for github.
+
+#+BEGIN_EXAMPLE conf
+machine api.github.com login claha^forge password TOKEN
+#+END_EXAMPLE
 * Org-mode
 
 Configure org source code blocks.

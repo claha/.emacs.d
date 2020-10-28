@@ -12,3 +12,5 @@ transient
 server/*
 custom.el
 package-quickstart.el
+forge-database.sqlite
+url/*
