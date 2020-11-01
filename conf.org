@@ -2,6 +2,21 @@
 #+AUTHOR: Claes Hallstrom
 #+OPTIONS: toc:nil num:nil
 
+* Quelpa
+
+Build and install your Emacs Lisp packages on-the-fly and directly from source.
+
+#+BEGIN_SRC emacs-lisp
+(use-package quelpa
+  :ensure
+  :custom
+  (quelpa-update-melpa-p nil))
+
+(use-package quelpa-use-package
+  :ensure
+  :init
+  (setq quelpa-use-package-inhibit-loading-quelpa t))
+#+END_SRC
 * Customization and backup
 
 Save Emacs customization settings in a separate file.
