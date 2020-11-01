@@ -383,6 +383,13 @@ Configure c/c++ indentation.
   (setq c-default-style "linux" c-basic-offset 2)
   (c-set-offset 'case-label '+))
 #+END_SRC
+
+Save and restore frames and windows with their buffers in Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package burly
+  :quelpa (burly :fetcher github :repo "alphapapa/burly.el"))
+#+END_SRC
 * Private
 
 Load private file if it exists and is readable.
