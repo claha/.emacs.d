@@ -125,7 +125,7 @@ Ivy - a generic completion frontend for Emacs.
   :diminish ivy-posframe-mode
   :custom
   (ivy-posframe-height-alist
-   '((t . 10)))
+   '((t . 20)))
   (ivy-posframe-display-functions-alist
    '((counsel-find-file . nil)
      (t . ivy-posframe-display-at-frame-center)))
