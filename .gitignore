@@ -16,3 +16,5 @@ package-quickstart.el
 forge-database.sqlite
 url/*
 bookmarks
+projectile-bookmarks.eld
+projectile.cache
