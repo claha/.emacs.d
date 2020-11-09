@@ -296,6 +296,14 @@ machine api.github.com login claha^forge password TOKEN
 #+END_EXAMPLE
 * Org-mode
 
+Configure org-mode.
+
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :config
+  (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0))))
+#+END_SRC
+
 Configure org source code blocks.
 
 #+BEGIN_SRC emacs-lisp
