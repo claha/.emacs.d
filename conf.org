@@ -331,6 +331,7 @@ Miscellaneous packages.
 
 (use-package hungry-delete
   :ensure
+  :diminish hungry-delete-mode
   :config
   (global-hungry-delete-mode))
 
