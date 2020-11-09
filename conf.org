@@ -60,13 +60,12 @@ Configure the appearance of Emacs.
   (scroll-bar-mode -1)
   (global-hl-line-mode 1)
   (show-paren-mode 1)
-  (global-linum-mode t)
+  (global-display-line-numbers-mode t)
   :config
   (setq inhibit-startup-message t)
   (setq initial-scratch-message nil)
   (set-window-scroll-bars (minibuffer-window) nil nil)
   (setq show-paren-delay 0.0)
-  (setq line-number-mode t)
   (setq column-number-mode t))
 #+END_SRC
 
