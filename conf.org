@@ -419,6 +419,13 @@ Save and restore frames and windows with their buffers in Emacs.
 (use-package burly
   :quelpa (burly :fetcher github :repo "alphapapa/burly.el"))
 #+END_SRC
+
+Diminish eldoc-mode.
+
+#+BEGIN_SRC emacs-lisp
+(use-package eldoc
+  :diminish eldoc-mode)
+#+END_SRC
 * Private
 
 Load private file if it exists and is readable.
