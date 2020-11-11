@@ -318,17 +318,36 @@ Configure org source code blocks.
   (setq org-src-tab-acts-natively t))
 #+END_SRC
 
-* Miscellaneous
+* Help
 
-Miscellaneous packages.
+Emacs package that displays available keybindings in popup.
 
 #+BEGIN_SRC emacs-lisp
 (use-package which-key
   :ensure
   :diminish which-key-mode
-  :config
-  (which-key-mode))
+  :init (which-key-mode))
+#+END_SRC
 
+A better Emacs *help* buffer.
+
+#+BEGIN_SRC emacs-lisp
+(use-package helpful
+  :ensure
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+#+END_SRC
+* Miscellaneous
+
+Miscellaneous packages.
+
+#+BEGIN_SRC emacs-lisp
 (use-package hungry-delete
   :ensure
   :diminish hungry-delete-mode
