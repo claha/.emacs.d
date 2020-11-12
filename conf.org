@@ -164,7 +164,11 @@ Configure dabbrev.
   (dabbrev-upcase-means-case-search t)
   :config
   (global-set-key (kbd "C-.") 'dabbrev-expand)
-  (global-set-key (kbd "C-:") 'dabbrev-completion))
+  (global-set-key (kbd "C-:")
+                  '(lambda()
+                     (interactive)
+                     (let ((current-prefix-arg '(16)))  ;; C-u C-u
+                       (call-interactively 'dabbrev-completion)))))
 #+END_SRC
 * Project
 
