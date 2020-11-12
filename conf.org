@@ -395,6 +395,8 @@ Writing 'yes/no' takes to much time...
 (use-package emacs
   :config
   (defalias 'yes-or-no-p 'y-or-n-p)
+  (setq large-file-warning-threshold nil)
+  (setq vc-follow-symlinks t)
   (setq visible-bell t))
 #+END_SRC
 
