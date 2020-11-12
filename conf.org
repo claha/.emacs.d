@@ -394,7 +394,8 @@ Writing 'yes/no' takes to much time...
 #+BEGIN_SRC emacs-lisp
 (use-package emacs
   :config
-  (defalias 'yes-or-no-p 'y-or-n-p))
+  (defalias 'yes-or-no-p 'y-or-n-p)
+  (setq visible-bell t))
 #+END_SRC
 
 Allow to change case of region and narrowing.
