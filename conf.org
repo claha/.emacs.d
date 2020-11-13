@@ -70,13 +70,12 @@ Configure the appearance of Emacs.
   (setq column-number-mode t))
 #+END_SRC
 
-Install and load material-theme
+An opinionated pack of modern color-themes.
 
 #+BEGIN_SRC emacs-lisp
-(use-package material-theme
+(use-package doom-themes
   :ensure
-  :config
-  (load-theme 'material t))
+  :init (load-theme 'doom-material t))
 #+END_SRC
 
 Configure mode line without icon and showing minor modes and buffer name.
