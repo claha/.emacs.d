@@ -140,6 +140,8 @@ Ivy - a generic completion frontend for Emacs.
 (use-package counsel
   :ensure
   :diminish counsel-mode
+  :bind (("C-c i" . counsel-imenu)
+         ("C-x C-r" . counsel-recentf))
   :config
   (counsel-mode 1)
   (setq counsel-find-file-ignore-regexp
