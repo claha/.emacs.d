@@ -228,16 +228,13 @@ Quickly switch windows in Emacs.
   :bind ("C-x o" . ace-window))
 #+END_SRC
 
-Set the flags passed to ls by dired.
+Dired, the Directory Editor.
 
 #+BEGIN_SRC emacs-lisp
-(setq-default dired-listing-switches "-lhva")
-#+END_SRC
-
-Hide details by default, toggle with =(= when in dired.
-
-#+BEGIN_SRC emacs-lisp
-(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
+(use-package dired
+  :commands (dired dired-jump)
+  :bind (("C-x C-j" . dired-jump))
+  :custom ((dired-listing-switches "-aghov --group-directories-first")))
 #+END_SRC
 * Searching and jumping
 
