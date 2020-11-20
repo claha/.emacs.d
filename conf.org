@@ -291,13 +291,6 @@ It's Magit! A Git porcelain inside Emacs.
             '(lambda ()
                (setq fill-column 72)
                (setq-local comment-auto-fill-only-comments nil))))
-
-(use-package diff-hl
-  :ensure
-  :config
-  (setq diff-hl-side 'right)
-  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 #+END_SRC
 
 Example of ~/.authinfo for github.
@@ -305,6 +298,18 @@ Example of ~/.authinfo for github.
 #+BEGIN_EXAMPLE conf
 machine api.github.com login claha^forge password TOKEN
 #+END_EXAMPLE
+
+Emacs package for highlighting uncommitted changes
+
+#+BEGIN_SRC emacs-lisp
+(use-package diff-hl
+  :ensure
+  :hook ((prog-mode . diff-hl-mode)
+         (org-mode . diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode))
+  :custom
+  (diff-hl-side 'right))
+#+END_SRC
 * Org-mode
 
 Configure org-mode.
