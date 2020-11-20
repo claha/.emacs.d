@@ -178,6 +178,7 @@ Project Interaction Library for Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
+  :ensure
   :diminish projectile-mode
   :config (projectile-mode)
   :custom ((projectile-completion-system 'ivy))
@@ -185,6 +186,7 @@ Project Interaction Library for Emacs.
   ("C-c p" . projectile-command-map))
 
 (use-package counsel-projectile
+  :ensure
   :config (counsel-projectile-mode))
 #+END_SRC
 * Buffers and windows
@@ -243,7 +245,7 @@ Jump to things in Emacs tree-style.
 
 #+BEGIN_SRC emacs-lisp
 (use-package avy
-  :defer t
+  :ensure
   :init
   (avy-setup-default))
 #+END_SRC
@@ -251,8 +253,8 @@ Jump to things in Emacs tree-style.
 An Emacs frontend to The Silver Searcher.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ag
-    :defer t)
+(use-package ag
+  :ensure)
 #+END_SRC
 
 An Emacs "jump to definition" package for 40+ languages.
@@ -282,7 +284,7 @@ It's Magit! A Git porcelain inside Emacs.
   :ensure)
 
 (use-package git-commit
-  :defer t
+  :ensure
   :config
   (setq git-commit-summary-max-length 50)
   (add-hook 'git-commit-mode-hook
@@ -317,7 +319,7 @@ Configure org source code blocks.
 
 #+BEGIN_SRC emacs-lisp
 (use-package org-src
-  :config
+   :config
   (setq org-src-window-setup 'current-window)
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
@@ -361,9 +363,11 @@ Miscellaneous packages.
   (global-hungry-delete-mode))
 
 (use-package cmake-mode
+  :ensure
   :defer t)
 
 (use-package hydra
+  :ensure
   :defer t)
 
 (use-package flycheck
