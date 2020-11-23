@@ -338,6 +338,8 @@ Emacs package that displays available keybindings in popup.
 (use-package which-key
   :ensure
   :diminish which-key-mode
+  :custom
+  (which-key-idle-delay 0.25)
   :init (which-key-mode))
 #+END_SRC
 
