@@ -180,10 +180,12 @@ Project Interaction Library for Emacs.
 (use-package projectile
   :ensure
   :diminish projectile-mode
-  :config (projectile-mode)
   :custom ((projectile-completion-system 'ivy))
   :bind-keymap
-  ("C-c p" . projectile-command-map))
+  ("C-c p" . projectile-command-map)
+  :config
+  (projectile-mode)
+  (setq frame-title-format '((:eval (projectile-project-name)))))
 
 (use-package counsel-projectile
   :ensure
