@@ -359,6 +359,18 @@ A better Emacs *help* buffer.
 #+END_SRC
 * Miscellaneous
 
+Emacs client/library for the Language Server Protocol.
+
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode
+  :ensure
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+#+END_SRC
+
 Miscellaneous packages.
 
 #+BEGIN_SRC emacs-lisp
