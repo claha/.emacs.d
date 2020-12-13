@@ -112,6 +112,7 @@ Ivy - a generic completion frontend for Emacs.
   (setq ivy-extra-directories ())
   (setq ivy-sort-matches-functions-alist
         '((t . ivy--prefix-sort)))
+  (setq ivy-initial-inputs-alist nil)
   (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial))
 
 (use-package ivy-rich
