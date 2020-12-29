@@ -117,6 +117,7 @@ Ivy - a generic completion frontend for Emacs.
 
 (use-package ivy-rich
   :ensure
+  :after counsel
   :config
   (setcdr (assq t ivy-format-functions-alist)
           #'ivy-format-function-line)
